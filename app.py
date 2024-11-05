@@ -5,8 +5,7 @@ import streamlit as st
 # 환경 변수에서 QUERY_URL 가져오기
 QUERY_URL = os.getenv('QUERY_URL', 'http://k8s-default-apigatew-b334012b26-af978099376a3e4b.elb.ap-northeast-2.amazonaws.com/query')
 
-# Streamlit 앱 제목 설정
-st.title("Streamlit 기반 챗봇")
+st.title("패션, 트랜드, 여행 등 다양한 주제에 대해 물어보세요!")
 
 # 세션 상태 초기화
 if 'messages' not in st.session_state:
