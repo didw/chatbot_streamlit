@@ -23,9 +23,10 @@ if prompt := st.chat_input("질문을 입력하세요:"):
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    # API 요청
-    response = requests.post(QUERY_URL, json={'text': prompt})
-    answer = response.json().get('answer')
+    # 스피너 표시와 API 요청
+    with st.spinner("처리중입니다... 잠시만 기다려 주세요."):
+        response = requests.post(QUERY_URL, json={'text': prompt})
+        answer = response.json().get('answer')
 
     # 챗봇 응답 저장 및 표시
     st.session_state.messages.append({"role": "assistant", "content": answer})
